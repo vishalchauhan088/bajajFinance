@@ -13,6 +13,11 @@ app.use(express.json());
 mongoose.connect(process.env.URI).then((con) => {
   console.log("database connection succesfull");
 });
+
+app.get("/", (req, res) => {
+  res.json("Server is running!");
+});
+
 app.use("/bfhl", apiRoutes);
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
